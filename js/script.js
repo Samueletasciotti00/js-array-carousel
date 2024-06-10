@@ -1,23 +1,44 @@
 //Creare un array contentente le immagini;
 let immages =[
-    '01.webp',
-    '02.webp',
-    '03.webp',
-    '04.webp',
-    '05.webp',
+    'img/01.webp',
+    'img/02.webp',
+    'img/03.webp',
+    'img/04.webp',
+    'img/05.webp',
 ]
-//Creare un ciclo che permetta di cambiare immagini dinamicamente;
 
-//Variabile che indica l'immagine specifica nell'array;
+// Individuare e selezionare elemento contenitore
+const contenitoreImg = document.querySelector('immage');
 
-// Selezione del pulsante per scorrere giù;
-let down = document.querySelector('.bottom');
+//Prendo gli elementi presenti nell'Array;
+for(let i = 0; i < immages.length; i++) {
 
-down.addEventListener('click',
+    //Mettere nell HTML l'immagine
+
+    document.querySelector('.box').innerHTML += `<img class="item" src="${immages[i]}" alt="">`;
+    // 
+}
+
+
+//Selezionare gli elementi in pagina
+const items = document.getElementsByClassName('item');
+let itemsActive = 0;
+
+// Aggiunta della classe (Active) alle immagini; **
+items[itemsActive].classList.add('active');
+
+
+//Selezione del bottone
+const next = document.querySelector('.next');
+
+//Gestire il click per cambio immagini;
+next.addEventListener('click',
     function(){
-        
-    //Verica posizionamento array
-    if ()
+        //Incremento
+        itemsActive++;
+        console.log(itemsActive);
+
+        //Associare l'immagine con la classe active
+        items[itemsActive].classList.add('active'); //**
     }
 );
-
