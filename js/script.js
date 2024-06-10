@@ -28,17 +28,60 @@ let itemsActive = 0;
 items[itemsActive].classList.add('active');
 
 
-//Selezione del bottone
+//Selezione del bottone di Incemento;
 const next = document.querySelector('.next');
 
 //Gestire il click per cambio immagini;
 next.addEventListener('click',
     function(){
-        //Incremento
-        itemsActive++;
-        console.log(itemsActive);
+        //Verifica della lista immagini
+        if(itemsActive < immages.length -1) {
 
-        //Associare l'immagine con la classe active
-        items[itemsActive].classList.add('active'); //**
+            // Rimozione class
+            items[itemsActive].classList.remove('active');
+        
+
+            //Incremento
+
+            //Condizione di controllo per non uscrie dall'Array;
+            if(itemsActive < immages.length) {
+                itemsActive++;
+                console.log('Alowed');
+            }
+
+            //Associare l'immagine con la classe active
+            items[itemsActive].classList.add('active'); //**
+        }
     }
 );
+
+
+
+
+//Selezione del bottone di decremento;
+const previous = document.querySelector('.previous');
+
+// Cick per decremento;
+previous.addEventListener('click',
+    function(){
+
+        // DEBUG
+        console.log(itemsActive);
+
+        // Verifica lista immagini
+        // if(itemsActive < immages.length +1) {
+
+            //DEBUG
+            console.log('ok');
+
+            // Rimozione della classe della img;
+            items[itemsActive].classList.remove('active');
+
+            if(itemsActive > 0) {
+                itemsActive--;
+            }
+
+            items[itemsActive].classList.add('active');
+        // }
+    }
+)
